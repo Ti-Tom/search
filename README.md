@@ -2,6 +2,7 @@
 
 ![stable](https://badgen.net/github/release/pragma-framework/search/stable)
 ![packagist](https://badgen.net/packagist/v/pragma-framework/search)
+![license](https://badgen.net/badge/license/MIT/blue)
 
 A simple Pragma module which can help to index and search text in Pragma Framework.
 
