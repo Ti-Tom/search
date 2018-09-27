@@ -3,6 +3,8 @@ namespace Pragma\Search;
 
 use Pragma\Search\Processor;
 use Pragma\Helpers\TaskLock;
+use Pragma\Search\ElasticSearch\ElasticSearch;
+use Pragma\Search\ElasticSearch\Processor as ProcessorElasticSearch;
 
 class IndexerController{
 	public static function run(){
@@ -37,5 +39,14 @@ class IndexerController{
 				}
 			}
 		}
+	}
+
+	public static function rebuild2(){
+		TaskLock::check_lock(realpath('.').'/locks', 'indexer');
+
+		self::loadClasses();
+		ProcessorElasticSearch::rebuild();
+
+		TaskLock::flush(realpath('.').'/locks', 'indexer');
 	}
 }

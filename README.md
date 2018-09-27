@@ -35,3 +35,25 @@ By default, the min length is 3 characters. But you can define a custom constant
 or
 
 	php public/index.php indexer:rebuild
+
+## TODO: ElasticSearch
+
+- [ ] In `Pragma\Search\ElasticSearch\ElasticSearch` use constants for connection (host/port/login/pwd)
+- [ ] In `Pragma\Search\ElasticSearch\ElasticSearch` use constants for `index`
+- [ ] In `Pragma\Search\ElasticSearch\Processor::index_object()` use core relations
+- [ ] In `Pragma\ORM\Model` define new function `get_fields`
+```php
+public function get_fields(){
+	return $this->fields;
+}
+```
+- [ ] Fix/Dev function `process()` in `Pragma\Search\ElasticSearch\Search`
+Use it with:
+```php
+\Pragma\Search\ElasticSearch\Search::process(
+	$keywords,
+	$score || null,
+	[get_class(new Model())],
+	['col1', 'col2', ...]
+));
+```
